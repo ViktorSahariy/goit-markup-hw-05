@@ -89,20 +89,37 @@ nav > a {
     padding-bottom: 24px;
 }
 /*ПОСИЛАННЯ*/
-.links-nav .link {
+.link {
+    position: relative;
     display: block;
     padding-top: 32px;
     padding-bottom: 32px;
     color: var(--color-primary);
     text-decoration: none;
     letter-spacing: 0.02em;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .link:hover,
 .link:focus {
     color: var(--color-second);
 }
-.link:current {
+.link.current {
     color: var(--color-second);
+}
+.link::after {
+    content: '';
+    position: absolute;
+    background-color: var(--color-second);
+    border-radius: 2px;
+    width: 100%;
+    height: 4px;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+}
+.link.current::after {
+    content: '';
+    opacity: 1;
 }
 .links-nav .list + .list {
     margin-left: 50px;
@@ -121,6 +138,7 @@ nav > a {
     color: var(--color-contacts);
     text-decoration: none;
     letter-spacing: 0.02em;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contacts:hover,
 .contacts:focus {
@@ -132,11 +150,11 @@ nav > a {
     padding-bottom: 32px;
 }
 .contacts-nav {
-    display: flex; 
+    display: flex;
     margin-left: auto;
 }
 .contacts-nav .list + .list {
-    margin-left: 48px;
+    margin-left: 30px;
 }
 .header-icon {
     margin-right: 10px;
@@ -145,9 +163,9 @@ nav > a {
 .header-icon:hover,
 .header-icon:focus {
 color: var(--color-second);
-} 
+}
 /*HERO*/ 
-.banner.section {
+.baner.section {
     background-color: var(--color-hero);
     background-image: linear-gradient(
     to right,
@@ -162,21 +180,21 @@ color: var(--color-second);
     padding-bottom: 200px;
 }
 .hero {
-    font-family: var(--font-family-primary);
     color: var(--color-hero-name);
+    font-family: var(--font-family-primary);
     font-weight: 900;
     font-size: 44px;
     line-height: 1.36;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     margin-bottom: 30px;
-} 
+}
 /*BUTTON HERO*/ 
 .button {
     background-color: var(--color-second);
     color: var(--color-hero-name);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 4px;
+    border-radius: 4px;;
     border: 1px;
     cursor: pointer;
     font-family: var(--font-family-primary);
@@ -186,21 +204,12 @@ color: var(--color-second);
     letter-spacing: 0.06em;
     display: inline-block;
     padding: 10px 32px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button:hover,
 .button:focus {
     background-color: var(--color-button);
 }
-.name {
-    font-weight: 700;
-    font-size: 36px;
-    text-align: center;
-}
-.quality-name  {
-    font-weight: 700;
-    font-size: 14px;
-    text-transform: uppercase;
-} 
 /*QUALITY SECTION*/
 .container.quality-box {
     width: 270px;
@@ -236,13 +245,32 @@ color: var(--color-second);
 }
 .work .work-list {
     margin-right: 30px;
+    position: relative;
 }
-.work .work-list :last-child {
+.work .work-list:last-child {
     margin-right: 0;
 }
 .work {
-    display:flex;
-} 
+    display: flex;
+}
+.work-label {
+    position: absolute;
+    background-color:var(--color-background);
+        width: 100%;
+        bottom: 0;
+        top: 224px;
+}
+.label-text {
+    margin-bottom: 0;
+    margin-top: 27px;
+    text-align: center;
+    color: var(--color-hero-name);
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 1.17;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+}
 /*TEAM*/ 
 .section.bgteam {
     padding-bottom: 94px;
@@ -450,7 +478,6 @@ margin-right: 0;
 }
 /*PORTFOLIO*/ 
 .portfolio.section {
-    margin-top: 94px;
     padding-bottom: 94px;
 }
 /*PORTFOLIO BUTTON*/
