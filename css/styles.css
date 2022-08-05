@@ -502,10 +502,16 @@ color: var(--color-primary);
     display: flex;
     align-items: baseline;
 }
-/*PORTFOLIO*/ 
-.portfolio.section {
-    padding-bottom: 94px;
+.adress {
+    margin-top: 20px;
+    margin-bottom: 9px;
 }
+.footer-contacts-list {
+    margin-bottom: 9px;
+}
+/*PORTFOLIO*/ 
+
+
 /*PORTFOLIO BUTTON*/
 .filters {
     background-color: var(--color-team);
